@@ -1,1 +1,75 @@
 .gitkeep
+# Hash Maps (Dictionary)
+
+# 1. Count Numbers
+
+def count_numbers(nums):
+    counts = {}
+
+    for num in nums:
+        counts[num] = counts.get(num, 0) + 1
+
+    return counts
+
+# 2. First Unique
+
+
+def first_unique(nums):
+    counts = {}
+
+    for num in nums:
+        counts[num] = counts.get(num, 0) + 1
+
+    for num in nums:
+        if counts[num] == 1:
+            return num
+
+    return None
+
+
+# 3. First Duplicate
+
+def first_duplicate(nums):
+    seen = set()
+
+    for num in nums:
+        if num in seen:
+            return num
+
+        seen.add(num)
+
+    return None
+
+
+# 4. Most Frequent
+
+def most_frequent(nums):
+    counts = {}
+
+    for num in nums:
+        counts[num] = counts.get(num, 0) + 1
+
+    max_num = None
+    max_count = 0
+
+    for num, count in counts.items():
+        if count > max_count:
+            max_count = count
+            max_num = num
+
+    return max_num
+
+# 5. Two Sum
+
+def two_sum(nums, target):
+    seen = {}
+
+    for i, num in enumerate(nums):
+        needed = target - num
+
+        if needed in seen:
+            return [seen[needed], i]
+
+        seen[num] = i
+
+    return []
